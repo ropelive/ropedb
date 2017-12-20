@@ -31,12 +31,16 @@ node.join(seed, () => {
 
 new Rope('kitedb', {
 	get: (key, callback) => {
-		callback(null)
+		node.iterativeFindValue(key, (err, value, contacts) => {
+			console.log(`get ${key} result: err=${err}, value=${value}, contacts=${contacts}`)
+		})
 	},
 	set: (key, value, callback) => {
-		callback(null)
+		node.iterativeStore(key, value, (err, stored) => {
+			console.log(`set ${key}=${value} result: err=${err}, stored=${stored}`)
+		})
 	},
 	del: (key, callback) => {
-		callback(null)
+		console.log(`del ${key}: not implemented`)
 	},
 })
