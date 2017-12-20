@@ -3,5 +3,8 @@
     "@rope/node": "0.0.2",
     "kad": "^2.4.1",
     "level-browserify": "^1.1.1"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }
