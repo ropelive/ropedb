@@ -8,7 +8,7 @@ const seedPort = process.env.KITEDB_SEED_PORT || 443
 
 const node = kad({
 	transport: new kad.HTTPTransport(),
-	storage: level('./kitedb'),
+	storage: level('./ropedb'),
 	contact: {
 		hostname: 'localhost',
 		port: port
