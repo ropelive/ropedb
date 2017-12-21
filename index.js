@@ -3,8 +3,8 @@ const kad = require('kad')
 const level = require('level-browserify')
 
 const port = process.env.KITEDB_PORT || 1337
-const seedHost = process.env.KITEDB_SEED || 'kitedb.microverse.koding.live'
-const seedPort = process.env.KITEDB_SEED_PORT || 443
+const seedHost = process.env.KITEDB_SEED || 'ropedb.microverse.koding.me'
+const seedPort = process.env.KITEDB_SEED_PORT || 1337
 
 const node = kad({
 	transport: new kad.HTTPTransport(),
@@ -29,7 +29,7 @@ node.join(seed, () => {
 	console.log(`Connected to ${node.router.size} peers`)
 })
 
-new Rope('kitedb', {
+new Rope('ropedb', {
 	get: (key, callback) => {
 		node.iterativeFindValue(key, (err, value, contacts) => {
 			console.log(`get ${key} result: err=${err}, value=${value}, contacts=${contacts}`)
